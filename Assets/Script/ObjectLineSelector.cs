@@ -1,19 +1,18 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ObjectLineSelector : MonoBehaviour
 {
     [SerializeField] private GameObject[] pinchas;
     private Camera cam;
     private LineRenderer lineRenderer;
-    private Vector3 lineStart;
-    private Vector3 lineEnd;
     private GameObject selectedPincha;
-    private Vector3 prevPosition;
-    public int movementCount = 0;
+    private TelaVitoria telaVitoria; // Para chamar a UI de Vitoria
 
     void Start()
     {
         cam = Camera.main;
+        telaVitoria = FindAnyObjectByType<TelaVitoria>();
     }
 
     void Update()
@@ -29,28 +28,23 @@ public class ObjectLineSelector : MonoBehaviour
 
     private void HandleTouchInput()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
+            Ray ray = cam.ScreenPointToRay(Input.GetTouch(0).position);
+            if (Physics.Raycast(ray, out RaycastHit hit) && TrySelectPincha(hit.transform.gameObject))
             {
-                Ray ray = cam.ScreenPointToRay(touch.position);
-                if (Physics.Raycast(ray, out RaycastHit hit) && TrySelectPincha(hit.transform.gameObject))
-                {
-                    Debug.Log("teste");
-                }
+                Debug.Log("Pincha selecionado.");
             }
         }
     }
 
     private bool TrySelectPincha(GameObject hitObject)
     {
-        for (int i = 0; i < pinchas.Length; i++)
+        foreach (var pincha in pinchas)
         {
-            if (hitObject == pinchas[i])
+            if (hitObject == pincha)
             {
                 selectedPincha = hitObject;
-                prevPosition = selectedPincha.transform.position;
                 return true;
             }
         }
@@ -59,28 +53,28 @@ public class ObjectLineSelector : MonoBehaviour
 
     private GameObject[] GetOtherObjects(GameObject selectedPincha)
     {
-        GameObject[] otherObjects = new GameObject[2];
-        int index = 0;
+        List<GameObject> otherObjects = new List<GameObject>();
 
         foreach (var pincha in pinchas)
         {
-            if (pincha != selectedPincha && index < 2)
-            {
-                otherObjects[index++] = pincha;
-            }
+            if (pincha != selectedPincha)
+                otherObjects.Add(pincha);
+
+            if (otherObjects.Count >= 2)
+                break;
         }
 
-        return otherObjects;
+        return otherObjects.ToArray();
     }
 
     private void DrawLineBetweenObjects(GameObject[] otherObjects)
     {
+        if (otherObjects.Length < 2) return;
+
         if (lineRenderer != null)
         {
             Destroy(lineRenderer.gameObject);
         }
-
-        if (otherObjects.Length < 2) return;
 
         GameObject lineObject = new GameObject("Line");
         lineRenderer = lineObject.AddComponent<LineRenderer>();
@@ -92,45 +86,40 @@ public class ObjectLineSelector : MonoBehaviour
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.startColor = Color.red;
         lineRenderer.endColor = Color.blue;
-
-        lineStart = otherObjects[0].transform.position;
-        lineEnd = otherObjects[1].transform.position;
     }
 
     private void CheckObjectCrossing()
     {
-        // Obtenha os outros objetos
         GameObject[] otherObjects = GetOtherObjects(selectedPincha);
 
-        // Verifique se há colisão entre os outros objetos
-        if (otherObjects.Length < 2) return;
+        // Verifique se a seleção e os outros objetos estão corretos
+        if (otherObjects == null || otherObjects.Length < 2 || selectedPincha == null)
+        {
+            Debug.LogWarning("Objetos insuficientes ou seleção inválida.");
+            return;
+        }
 
         Vector3 start = otherObjects[0].transform.position;
         Vector3 end = otherObjects[1].transform.position;
-        Vector3 direction = (end - start).normalized; // Direção do raio
+        Vector3 direction = (end - start).normalized;
+        float distance = Vector3.Distance(start, end);
+        Vector3 offsetStart = start + direction * 0.5f;
+        Vector3 offsetEnd = end - direction * 0.5f;
 
-        float offset = 0.5f;
-
-        Vector3 offsetStart = start + direction * offset;
-        Vector3 offsetEnd = end - direction * offset;
-
-
-        // Desenha a linha no Editor para visualização
         Debug.DrawLine(offsetStart, offsetEnd, Color.green);
-        // Verifica se há colisão ao longo do raio
-        RaycastHit hit;
-        if (Physics.Raycast(offsetStart, direction, out hit, Vector3.Distance(offsetStart, offsetEnd)))
-        {
-            Debug.Log("Colidiu com: " + hit.collider.name);  
 
+        if (Physics.Raycast(offsetStart, direction, out RaycastHit hit, distance))
+        {
             if (hit.transform.gameObject == selectedPincha)
             {
-                Debug.Log("colidiu");
-            }          
+                Debug.Log("Colidiu com: " + hit.collider.name);
+                telaVitoria.VerificarResultado(true); // Chamada da funcao da UI Vitoria
+            }
         }
         else
         {
             Debug.Log("Nenhuma colisão detectada.");
         }
     }
+
 }
