@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectSelector : MonoBehaviour
 {
-    public Material selectedMaterial; // Material para o efeito de stroke
+    //public Transform outline; // Material para o efeito de stroke
     private Material originalMaterial; // Material original do GameObject
     private bool isSelected = false;
 
@@ -12,6 +12,7 @@ public class ObjectSelector : MonoBehaviour
         if (GetComponent<MeshRenderer>() != null)
         {
             originalMaterial = GetComponent<MeshRenderer>().material;
+            GetComponent<Outline>().enabled = false;
         }
     }
 
@@ -53,7 +54,7 @@ public class ObjectSelector : MonoBehaviour
     {
         if (GetComponent<MeshRenderer>() != null)
         {
-            GetComponent<MeshRenderer>().material = selectedMaterial;
+            GetComponent<Outline>().enabled = true;
         }
         isSelected = true;
     }
@@ -62,7 +63,7 @@ public class ObjectSelector : MonoBehaviour
     {
         if (GetComponent<MeshRenderer>() != null)
         {
-            GetComponent<MeshRenderer>().material = originalMaterial;
+            GetComponent<Outline>().enabled = false;
         }
         isSelected = false;
     }
