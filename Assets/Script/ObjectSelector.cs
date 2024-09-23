@@ -55,6 +55,8 @@ public class ObjectSelector : MonoBehaviour
         if (GetComponent<MeshRenderer>() != null)
         {
             GetComponent<Outline>().enabled = true;
+            GetComponent<DragAndShoot>().enabled = true;
+            
         }
         isSelected = true;
     }
@@ -64,6 +66,7 @@ public class ObjectSelector : MonoBehaviour
         if (GetComponent<MeshRenderer>() != null)
         {
             GetComponent<Outline>().enabled = false;
+            GetComponent<DragAndShoot>().enabled = false;
         }
         isSelected = false;
     }
