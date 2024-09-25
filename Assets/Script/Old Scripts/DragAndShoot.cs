@@ -6,6 +6,7 @@ public class DragAndShoot : MonoBehaviour
     [SerializeField] private float power;
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform referencePoint;
+    [SerializeField] private TouchCameraController touchCameraController;
     private static bool isDragging = false; // Tornar essa variável estática
     private Vector3 startDrag;
     private Vector3 endDrag;
@@ -54,8 +55,6 @@ public class DragAndShoot : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject == gameObject)
-                {
                     if (touch.phase == TouchPhase.Began)
                     {
                         isDragging = true;
@@ -70,7 +69,6 @@ public class DragAndShoot : MonoBehaviour
                         isDragging = false;
                         ApplyForce();
                     }
-                }
             }
         }
     }
@@ -80,6 +78,8 @@ public class DragAndShoot : MonoBehaviour
         Vector3 dragVector = endDrag - startDrag;
         Vector3 force = new Vector3(-dragVector.x, 0f, -dragVector.y) * power;
         rb.AddForce(force, ForceMode.Impulse);
+        this.enabled = false;
+        touchCameraController.MoveCameraOn();
     }
 
     private void DrawDirectionLine()

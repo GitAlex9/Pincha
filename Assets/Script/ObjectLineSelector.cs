@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class ObjectLineSelector : MonoBehaviour
 {
     private GameObject[] pinchas;
-    private LineRenderer lineRenderer;
+    private LineRenderer lineRenderer;    
 
     void Start()
     {

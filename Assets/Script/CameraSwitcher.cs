@@ -4,16 +4,10 @@ public class CameraSwitcher : MonoBehaviour
 {
     public GameObject[] tampinhas; // Array com as tampinhas
     public Cinemachine.CinemachineVirtualCamera[] cameras; // Câmeras Cinemachine correspondentes
+    public GameObject[] touchSelection;
     public Cinemachine.CinemachineVirtualCamera navigationCamera; // Referência à câmera de navegação
     public static GameObject tampinhaSelecionada; // Armazena a tampinha selecionada globalmente
     public Rigidbody rb;
-
-    // private ObjectLineSelector objectLineSelector;
-
-    // void Start()
-    // {
-    //    // objectLineSelector = GetComponent<ObjectLineSelector>();
-    // }
 
     public void SelectTampinha(int index)
     {
@@ -32,33 +26,18 @@ public class CameraSwitcher : MonoBehaviour
         }
     }
 
-    // void Update()
-    // {
-    //     if (tampinhaSelecionada != null)
-    //     {
-    //         MakeCameraLookAtMiddleOfOtherObjects(tampinhaSelecionada);
-    //     }
-    // }
+    public void CheckTouchOnPincha(int index)
+    {
+        foreach (var obj in touchSelection)
+        {
+            obj.SetActive(false);
+        }
 
-    // private void MakeCameraLookAtMiddleOfOtherObjects(GameObject selectedTampinha)
-    // {
-    //     GameObject[] otherObjects = objectLineSelector.GetOtherObjects(selectedTampinha);
-
-    //     // Calcula o ponto médio entre as outras duas tampinhas
-    //     if (otherObjects.Length == 2)
-    //     {
-    //         Vector3 pontoMedio = (otherObjects[0].transform.position + otherObjects[1].transform.position) / 2;
-
-    //         // Encontra a câmera da tampinha selecionada
-    //         int index = System.Array.IndexOf(tampinhas, selectedTampinha);
-    //         if (index >= 0 && index < cameras.Length)
-    //         {
-    //             // Faz a câmera olhar para o ponto médio
-    //             cameras[index].transform.LookAt(pontoMedio);
-    //         }
-    //     }
-    // }
-
+        if (index >=0 && index < touchSelection.Length)
+        {
+            touchSelection[index].SetActive(true);
+        }
+    }
     public void SwitchToNavigationCamera()
     {
         // Desativa todas as câmeras das tampinhas
