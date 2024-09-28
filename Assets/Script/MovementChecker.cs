@@ -8,18 +8,6 @@ public class MovementChecker : MonoBehaviour
     private bool isMoving = false;
     private int moveCount = 0;
     
-    void OnEnable()
-    {
-        // Inscreve-se no evento de força aplicada
-        PinchaForceReceiver.pinchaStopped += StartMovement;
-    }
-
-    void OnDisable()
-    {
-        // Desinscreve-se do evento para evitar erros de referência
-        PinchaForceReceiver.pinchaStopped -= StartMovement;
-    }
-
     // Start is called before the first frame update
     void Start()
     {

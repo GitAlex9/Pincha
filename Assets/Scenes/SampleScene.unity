@@ -964,6 +964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tampinhaRb: {fileID: 835636350}
   maxForce: 35
+  delayBeforeEvent: 0.2
 --- !u!114 &373135030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1393,7 +1394,6 @@ GameObject:
   - component: {fileID: 665073039}
   - component: {fileID: 665073041}
   - component: {fileID: 665073042}
-  - component: {fileID: 665073043}
   m_Layer: 0
   m_Name: Controlador
   m_TagString: Untagged
@@ -1431,7 +1431,6 @@ MonoBehaviour:
   cam: {fileID: 530963034}
   rotate: 0
   scrollSpeed: 4
-  zoomSpeed: 1
 --- !u!114 &665073040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,18 +1481,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81517191643dc3a4ab2690db68c9faa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &665073043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 665073036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0092bff9abea9874fa720d5b9c2d8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &760690506
@@ -2181,6 +2168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tampinhaRb: {fileID: 172292307}
   maxForce: 35
+  delayBeforeEvent: 0.2
 --- !u!114 &1016978870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2417,8 +2405,8 @@ GameObject:
   - component: {fileID: 1226072801}
   - component: {fileID: 1226072800}
   m_Layer: 0
-  m_Name: Cube
-  m_TagString: Untagged
+  m_Name: ControladorPassagem
+  m_TagString: Movement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2468,7 +2456,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226072799}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3834,6 +3822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tampinhaRb: {fileID: 1457864274}
   maxForce: 35
+  delayBeforeEvent: 0.2
 --- !u!114 &1657343869
 MonoBehaviour:
   m_ObjectHideFlags: 0
