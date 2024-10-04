@@ -8,12 +8,24 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject uiButtons;
 
+    private AudioManager audioManager;
+
+    void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>(); 
+    }
+
     public void Pause()
     {
         Debug.Log("Pausando o jogo...");
         pauseMenu.SetActive(true);
         uiButtons.SetActive(false);
         Time.timeScale = 0;
+
+        if (audioManager != null)
+        {
+            audioManager.PauseBackgroundMusic();
+        }
     }
 
     public void Retomar()
@@ -22,6 +34,11 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         uiButtons.SetActive(true);
         Time.timeScale = 1;
+
+        if (audioManager != null) 
+        {
+            audioManager.ResumeBackgroundMusic();
+        }
     }
 
     public void Reiniciar()
@@ -30,6 +47,11 @@ public class PauseMenu : MonoBehaviour
         //Linha 27 d� o comando de reiniciar a fase
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+
+        if (audioManager != null) 
+        {
+            audioManager.ResumeBackgroundMusic(); 
+        }
     }
 
     public void Menu()

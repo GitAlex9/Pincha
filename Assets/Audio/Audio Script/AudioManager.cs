@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
    public AudioClip win;
    public AudioClip death;
 
+   private bool isGamePaused = false;
 
    private void Start()
    {
@@ -21,5 +22,22 @@ public class AudioManager : MonoBehaviour
     musicSource.Play();
    }
 
-   
+    public void PauseBackgroundMusic()
+    {
+        if (musicSource.isPlaying)
+        {
+            musicSource.Pause();
+            isGamePaused = true;
+        }
+    }
+
+    public void ResumeBackgroundMusic()
+    {
+        if (isGamePaused && musicSource.clip != null)
+        {
+            musicSource.Play();
+            isGamePaused = false;
+        }
+    }
+
 }
