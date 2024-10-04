@@ -30,7 +30,7 @@ public class TesteCollider : MonoBehaviour
     }
  
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {        
         if (pincha != null)
         {
@@ -41,7 +41,7 @@ public class TesteCollider : MonoBehaviour
         {
             CheckCondiction();
 
-            if (rb.velocity.magnitude <= 0.01 && moveOk == false)
+            if (rb.velocity.magnitude <= 0.01 && !moveOk)
             {
                 Debug.Log("você perdeu");
                 isMoving = false;
