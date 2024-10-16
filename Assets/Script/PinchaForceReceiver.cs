@@ -1,20 +1,19 @@
 using UnityEngine;
+using System;  // Para usar Action
+using System.Collections;  // Para usar IEnumerator e Coroutine
 
 public class PinchaForceReceiver : MonoBehaviour
 {
     public Rigidbody tampinhaRb;  // Referência ao Rigidbody da tampinha
     public float maxForce = 1000f;  // Força máxima aplicável
-    bool isMoving;
-    public delegate void OnPinchaStopped(bool move);
-    public static event OnPinchaStopped pinchaStopped;
+    public float delayBeforeEvent = 0.2f;  // Tempo de espera antes de invocar o evento
 
-    private void Start()
-    {
-        isMoving = false;
-    }
+    // Delegate para indicar o movimento da tampinha
+    public static event Action<bool> OnPinchaMovement;
+
     void OnEnable()
     {
-        ForceSliderController.ForceReleased += ApplyForce;  // Se inscreve no evento
+        ForceSliderController.ForceReleased += ApplyForce;  // Inscreve no evento de controle de força
     }
 
     void OnDisable()
@@ -29,23 +28,17 @@ public class PinchaForceReceiver : MonoBehaviour
 
         // Aplica a força na direção forward da tampinha
         tampinhaRb.AddForce(transform.forward * forceAmount, ForceMode.Impulse);
-        pinchaStopped?.Invoke(isMoving = true);
+
+        // Inicia a Coroutine para invocar o evento após o tempo de espera
+        StartCoroutine(WaitAndInvokeMovementEvent());
     }
 
-    void CheckMovement()
+    // Coroutine que espera e depois invoca o evento
+    IEnumerator WaitAndInvokeMovementEvent()
     {
-        if (tampinhaRb.velocity.magnitude < 0.1f)
-        {
-            Debug.Log("A tampinha parou de se mover");
-            pinchaStopped?.Invoke(false);
-        }
-    }
+        yield return new WaitForSeconds(delayBeforeEvent);  // Espera pelo tempo definido
 
-    private void Update()
-    {
-        if (isMoving == true)
-        {
-            CheckMovement();
-        }
+        // Invoca o evento para indicar que a tampinha está em movimento
+        OnPinchaMovement?.Invoke(true);
     }
 }

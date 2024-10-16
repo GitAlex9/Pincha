@@ -6,12 +6,26 @@ public class TesteCollider : MonoBehaviour
     public Transform[] pos;
     private Transform pincha;
     public float offset = 0;
+    private Rigidbody rb;
+    private bool isMoving = false;
+    private bool moveOk = false;
+
+    void OnEnable()
+    {
+        PinchaForceReceiver.OnPinchaMovement += OnMoveOk;
+    }
+
+    void OnDisable()
+    {
+        PinchaForceReceiver.OnPinchaMovement -= OnMoveOk;
+    }
 
     public void SelectTransform(int index )
     {
         if (index >= 0 && index < pos.Length)
         {
             pincha = pos[index];
+            rb = pos[index].GetComponent<Rigidbody>();
         }
     }
  
@@ -22,6 +36,18 @@ public class TesteCollider : MonoBehaviour
         {
             BoxResize(GetTransforms(pincha));
         } 
+
+        if (isMoving)
+        {
+            CheckCondiction();
+
+            if (rb.velocity.magnitude <= 0.01 && moveOk == false)
+            {
+                Debug.Log("você perdeu");
+                isMoving = false;
+            }
+        }
+
     }
 
     public Transform[] GetTransforms(Transform pincha)
@@ -52,5 +78,29 @@ public class TesteCollider : MonoBehaviour
         Vector3 dif = pos[0].position - pos[1].position;
         float size = dif.magnitude;
         transform.localScale = Vector3.forward * (size - offset) + new Vector3(1, 1, 0);
+    }
+
+        private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Você realizou um movimento perfeito");
+            moveOk = true;
+        }
+    }
+
+    void CheckCondiction()
+    {
+        if (moveOk)
+        {
+            Debug.Log("Chama contador de movimento.");
+            moveOk = !moveOk;
+            isMoving = false;                        
+        }
+    }
+
+    void OnMoveOk(bool value)
+    {
+        isMoving = value;
     }
 }
