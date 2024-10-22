@@ -9,6 +9,10 @@ public class TesteCollider : MonoBehaviour
     private Rigidbody rb;
     private bool isMoving = false;
     private bool moveOk = false;
+    public int moveCount = 0;
+    public MoveCount moveCountUI;
+
+
 
     void OnEnable()
     {
@@ -93,8 +97,14 @@ public class TesteCollider : MonoBehaviour
     {
         if (moveOk)
         {
-            Debug.Log("Chama contador de movimento.");
-            moveOk = !moveOk;
+            moveCount++;
+            Debug.Log("Chama contador de movimento." + moveCount);
+            if (moveCountUI != null)
+            {
+                moveCountUI.UpdateCountText();
+            }
+
+            moveOk = !moveOk;            
             isMoving = false;                        
         }
     }
@@ -103,4 +113,6 @@ public class TesteCollider : MonoBehaviour
     {
         isMoving = value;
     }
+
+    
 }
