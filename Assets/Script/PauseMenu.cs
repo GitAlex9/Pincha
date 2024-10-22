@@ -30,7 +30,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Retomar()
     {
-        Debug.Log("Retomando � fase...");
+        Debug.Log("Retomando à fase...");
         pauseMenu.SetActive(false);
         uiButtons.SetActive(true);
         Time.timeScale = 1;

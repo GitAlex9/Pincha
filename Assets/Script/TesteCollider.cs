@@ -9,6 +9,9 @@ public class TesteCollider : MonoBehaviour
     private Rigidbody rb;
     private bool isMoving = false;
     private bool moveOk = false;
+    public GameObject victoryUI;
+    public GameObject defeatUI; 
+
 
     void OnEnable()
     {
@@ -45,6 +48,11 @@ public class TesteCollider : MonoBehaviour
             {
                 Debug.Log("você perdeu");
                 isMoving = false;
+
+                    if (defeatUI != null)
+                    {
+                        defeatUI.SetActive(true);
+                    }
             }
         }
 
@@ -86,6 +94,7 @@ public class TesteCollider : MonoBehaviour
         {
             Debug.Log("Você realizou um movimento perfeito");
             moveOk = true;
+            
         }
     }
 
@@ -95,7 +104,12 @@ public class TesteCollider : MonoBehaviour
         {
             Debug.Log("Chama contador de movimento.");
             moveOk = !moveOk;
-            isMoving = false;                        
+            isMoving = false;  
+
+            if (victoryUI != null)
+            {
+                victoryUI.SetActive(true);
+            }                     
         }
     }
 
