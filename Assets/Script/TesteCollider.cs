@@ -12,6 +12,8 @@ public class TesteCollider : MonoBehaviour
     public int moveCount = 0;
     public MoveCount moveCountUI;
 
+    public GameObject victoryUI;
+    public GameObject defeatUI; 
 
 
     void OnEnable()
@@ -49,6 +51,11 @@ public class TesteCollider : MonoBehaviour
             {
                 Debug.Log("você perdeu");
                 isMoving = false;
+
+                    if (defeatUI != null)
+                    {
+                        defeatUI.SetActive(true);
+                    }
             }
         }
 
@@ -90,6 +97,7 @@ public class TesteCollider : MonoBehaviour
         {
             Debug.Log("Você realizou um movimento perfeito");
             moveOk = true;
+            
         }
     }
 
@@ -98,14 +106,17 @@ public class TesteCollider : MonoBehaviour
         if (moveOk)
         {
             moveCount++;
-            Debug.Log("Chama contador de movimento." + moveCount);
             if (moveCountUI != null)
             {
                 moveCountUI.UpdateCountText();
             }
-
             moveOk = !moveOk;            
-            isMoving = false;                        
+            isMoving = false; 
+
+            if (victoryUI != null)
+            {
+                victoryUI.SetActive(true);
+            }                     
         }
     }
 
