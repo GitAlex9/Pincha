@@ -7,9 +7,8 @@ public class LineProjection : MonoBehaviour
     public float lineLength = 5f;      // Comprimento da linha
     public Transform pinchaTransform;  // Referência à tampinha (GameObject)
 
-    void Update()
+    void FixedUpdate()
     {
-        // Define o ponto inicial da linha (posição da tampinha)
         lineRenderer.SetPosition(0, pinchaTransform.position);
 
         // Define o ponto final da linha (projetado à frente da câmera)
@@ -17,6 +16,6 @@ public class LineProjection : MonoBehaviour
         lineRenderer.SetPosition(1, endPoint);
 
         // Rotaciona a tampinha para seguir a direção da câmera
-        pinchaTransform.rotation = Quaternion.LookRotation(pinchaTransform.forward);
+        pinchaTransform.rotation = Quaternion.LookRotation(pinchaTransform.forward);        
     }
 }
