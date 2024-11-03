@@ -1,68 +1,31 @@
 using UnityEngine;
-
 using UnityEngine.SceneManagement;
 
 public class TelaVitoriaFinal : MonoBehaviour
-
 {
 
 public GameObject telaVitoria; // Referência ao Canvas de tela de vitória
 
 void Start()
-
 {
-
-if (telaVitoria != null)
-
-{
-
-telaVitoria.SetActive(true); // Certifique-se de que o Canvas de tela de vitória está desativado no início
-Time.timeScale = 0;
+    if (telaVitoria != null)
+    {
+        telaVitoria.SetActive(true); // Certifique-se de que o Canvas de tela de vitória está desativado no início
+        Time.timeScale = 0;
+    }
+    else
+    {
+        Debug.LogWarning("telaVitoria não está no Inspector");
+    }
 
 }
-
-else
-
-{
-
-Debug.LogWarning("telaVitoria não está no Inspector");
-
-}
-
-}
-
-/*public void ShowVictoryScreen()
-
-{
-
-if (telaVitoria != null)
-
-{
-
-telaVitoria.SetActive(true); // Ativa o Canvas de tela de vitória
-
-Time.timeScale = 0; // Pausa o jogo
-
-}
-
-}
-
-*/
-
-// Função chamada pelo botão "Próxima Fase"
 
 public void LoadNextLevel()
-
 {
-
-Time.timeScale = 1; // Retorna o tempo de jogo ao normal
-
-Debug.Log("Próxima fase...");
-// Carrega a próxima cena (supondo que as cenas estão em ordem no Build Settings)
-/*
-SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-*/
-
+    Time.timeScale = 1; // Retorna o tempo de jogo ao normal
+    Debug.Log("Próxima fase...");
+    // Carrega a próxima cena (supondo que as cenas estão em ordem no Build Settings)
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);    
 }
 
 // Função chamada pelo botão "Menu"

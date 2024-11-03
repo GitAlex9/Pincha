@@ -5,7 +5,6 @@ public class MovementChecker : MonoBehaviour
     private GameObject[] pinchas;
     private ObjectLineSelector objectLineSelector;
     private bool hasCrossedLine = false;
-    private bool isMoving = false;
     private int moveCount = 0;
     
     // Start is called before the first frame update
@@ -15,14 +14,6 @@ public class MovementChecker : MonoBehaviour
         objectLineSelector = GetComponent<ObjectLineSelector>();
     }
 
-    // Método chamado pelo delegate para iniciar o movimento
-    public void StartMovement(bool move)
-    {
-        if (move == true)
-        {
-            isMoving = true;
-        }
-    }
 
     // Update is called once per frame
     void Update()

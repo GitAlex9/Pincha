@@ -29,7 +29,7 @@ public class CheckMovement : MonoBehaviour
             isMoving = true;
             if (lineProjection != null)
             {
-                lineProjection.gameObject.SetActive(false); // Ativa a classe LineProjection
+                lineProjection.activeLineRenderer = false; // Ativa a classe LineProjection
             }
         }
     }
@@ -43,7 +43,7 @@ public class CheckMovement : MonoBehaviour
             {
                 if (lineProjection != null)
                 {
-                    lineProjection.gameObject.SetActive(true); // Desativa a classe LineProjection
+                    lineProjection.activeLineRenderer = true; // Desativa a classe LineProjection
                 }
                 isMoving = false;                
             }

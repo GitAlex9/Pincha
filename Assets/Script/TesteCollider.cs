@@ -11,8 +11,6 @@ public class TesteCollider : MonoBehaviour
     private bool moveOk = false;
     public int moveCount = 0;
     public MoveCount moveCountUI;
-
-    // public GameObject victoryUI;
     public GameObject defeatUI; 
 
 
@@ -111,12 +109,7 @@ public class TesteCollider : MonoBehaviour
                 moveCountUI.UpdateCountText();
             }
             moveOk = !moveOk;            
-            isMoving = false; 
-
-            /*if (victoryUI != null)
-            {
-                victoryUI.SetActive(true);
-            }  */                   
+            isMoving = false;                  
         }
     }
 
