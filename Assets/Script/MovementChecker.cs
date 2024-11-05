@@ -5,21 +5,8 @@ public class MovementChecker : MonoBehaviour
     private GameObject[] pinchas;
     private ObjectLineSelector objectLineSelector;
     private bool hasCrossedLine = false;
-    private bool isMoving = false;
     private int moveCount = 0;
     
-    void OnEnable()
-    {
-        // Inscreve-se no evento de força aplicada
-        PinchaForceReceiver.pinchaStopped += StartMovement;
-    }
-
-    void OnDisable()
-    {
-        // Desinscreve-se do evento para evitar erros de referência
-        PinchaForceReceiver.pinchaStopped -= StartMovement;
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +14,6 @@ public class MovementChecker : MonoBehaviour
         objectLineSelector = GetComponent<ObjectLineSelector>();
     }
 
-    // Método chamado pelo delegate para iniciar o movimento
-    public void StartMovement(bool move)
-    {
-        if (move == true)
-        {
-            isMoving = true;
-        }
-    }
 
     // Update is called once per frame
     void Update()

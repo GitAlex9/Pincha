@@ -6,22 +6,57 @@ public class TesteCollider : MonoBehaviour
     public Transform[] pos;
     private Transform pincha;
     public float offset = 0;
+    private Rigidbody rb;
+    private bool isMoving = false;
+    private bool moveOk = false;
+    public int moveCount = 0;
+    public MoveCount moveCountUI;
+    public GameObject defeatUI; 
+
+
+    void OnEnable()
+    {
+        PinchaForceReceiver.OnPinchaMovement += OnMoveOk;
+    }
+
+    void OnDisable()
+    {
+        PinchaForceReceiver.OnPinchaMovement -= OnMoveOk;
+    }
 
     public void SelectTransform(int index )
     {
         if (index >= 0 && index < pos.Length)
         {
             pincha = pos[index];
+            rb = pos[index].GetComponent<Rigidbody>();
         }
     }
  
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {        
         if (pincha != null)
         {
             BoxResize(GetTransforms(pincha));
         } 
+
+        if (isMoving)
+        {
+            CheckCondiction();
+
+            if (rb.velocity.magnitude <= 0.01 && !moveOk)
+            {
+                Debug.Log("você perdeu");
+                isMoving = false;
+
+                    if (defeatUI != null)
+                    {
+                        defeatUI.SetActive(true);
+                    }
+            }
+        }
+
     }
 
     public Transform[] GetTransforms(Transform pincha)
@@ -53,4 +88,35 @@ public class TesteCollider : MonoBehaviour
         float size = dif.magnitude;
         transform.localScale = Vector3.forward * (size - offset) + new Vector3(1, 1, 0);
     }
+
+        private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Você realizou um movimento perfeito");
+            moveOk = true;
+            
+        }
+    }
+
+    void CheckCondiction()
+    {
+        if (moveOk)
+        {
+            moveCount++;
+            if (moveCountUI != null)
+            {
+                moveCountUI.UpdateCountText();
+            }
+            moveOk = !moveOk;            
+            isMoving = false;                  
+        }
+    }
+
+    void OnMoveOk(bool value)
+    {
+        isMoving = value;
+    }
+
+    
 }

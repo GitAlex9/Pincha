@@ -7,7 +7,7 @@ public class NavigationCamera : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera cam;
     [SerializeField] private bool rotate;
     [SerializeField] private float scrollSpeed = 10f; // Velocidade de movimentação
-    [SerializeField] private float zoomSpeed = 1f; // Velocidade de zoom
+    //[SerializeField] private float zoomSpeed = 1f; // Velocidade de zoom
 
     private Plane interactionPlane;
 
