@@ -835,7 +835,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 50
+    FieldOfView: 70
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 100
@@ -4643,7 +4643,7 @@ GameObject:
   - component: {fileID: 1173283307}
   - component: {fileID: 1173283306}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Derrotasecair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

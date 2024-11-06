@@ -807,7 +807,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 50
+    FieldOfView: 70
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 100
@@ -8576,6 +8576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   victoryUI: {fileID: 572753401}
   testeCollider: {fileID: 1226072800}
+  winMovement: 7
 --- !u!65 &1999312188
 BoxCollider:
   m_ObjectHideFlags: 0
