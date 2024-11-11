@@ -4441,7 +4441,7 @@ MonoBehaviour:
   - {fileID: 1457864273}
   - {fileID: 172292311}
   - {fileID: 835636354}
-  offset: 1.3
+  offset: 2.5
   moveCount: 0
   moveCountUI: {fileID: 1506125073}
   defeatUI: {fileID: 801981020}
