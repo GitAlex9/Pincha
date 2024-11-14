@@ -103,8 +103,8 @@ else
 private void Load()
 {
 
-isMusicMuted = PlayerPrefs.GetInt("IsMusicMuted", 0) == 1; // Example using PlayerPrefs
-isSfxMuted = PlayerPrefs.GetInt("IsSfxMuted", 0) == 1; // Example using PlayerPrefs
+isMusicMuted = PlayerPrefs.GetInt("IsMusicMuted", 0) == 1; 
+isSfxMuted = PlayerPrefs.GetInt("IsSfxMuted", 0) == 1; 
 
 }
 
