@@ -6,10 +6,12 @@ public class TelaVitoriaFinal : MonoBehaviour
 
 public GameObject telaVitoria; // Referência ao Canvas de tela de vitória
 
+
 void Start()
 {
     if (telaVitoria != null)
     {
+        
         telaVitoria.SetActive(true); // Certifique-se de que o Canvas de tela de vitória está desativado no início
         Time.timeScale = 0;
     }
@@ -19,6 +21,7 @@ void Start()
     }
 
 }
+
 
 public void LoadNextLevel()
 {
