@@ -10,10 +10,10 @@ public class ForceSliderController : MonoBehaviour, IPointerUpHandler
     public delegate void OnForceReleased(float force);
     public static event OnForceReleased ForceReleased;
 
-    void Update()
+    public void ForceSlicer(float value)
     {
         // Atualiza o valor atual da força com base no slider
-        currentForce = forceSlider.value;
+        currentForce = value;
     }
 
     // Detecta quando o jogador solta o slider

@@ -3,6 +3,7 @@ using UnityEngine;
 public class WinCondition : MonoBehaviour
 {
     public GameObject victoryUI;
+    public GameObject defeteadUI;
     public TesteCollider testeCollider;
     [SerializeField] private int winMovement = 7;
     private void OnCollisionEnter(Collision other)
