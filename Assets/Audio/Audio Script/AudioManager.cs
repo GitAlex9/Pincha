@@ -13,6 +13,11 @@ public class AudioManager : MonoBehaviour
    public AudioClip win;
    public AudioClip death;
 
+   private void Awake()
+   {
+    DontDestroyOnLoad(gameObject);
+   }
+
    private bool isGamePaused = false;
 
 //    public GameObject telaVitoria;
