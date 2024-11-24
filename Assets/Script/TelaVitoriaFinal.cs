@@ -48,10 +48,10 @@ SceneManager.LoadScene("Menu");
 */
 
 //VOU ADICIONAR UM RETRY APENAS PARA A NOSSA ENTREGA
-Debug.Log("Você foi para o Menu, mas sabemos que deu Retry!");
+Debug.Log("Você foi para o Menu");
 Time.timeScale = 1; // Retorna o tempo de jogo ao normal
 
-SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+SceneManager.LoadScene("MainMenu");
 
 }
 

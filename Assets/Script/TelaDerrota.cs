@@ -2,6 +2,7 @@ using UnityEngine;
 
 using UnityEngine.SceneManagement;
 
+
 public class TelaDerrota : MonoBehaviour
 {
 
@@ -36,10 +37,8 @@ Time.timeScale = 1; // Retorna o tempo de jogo ao normal
 
 // Carrega a cena do Menu
 Debug.Log("Você voltou para o Menu");
-/*
-CARREGA O MENU
-SceneManager.LoadScene("Menu");
-*/
+SceneManager.LoadScene("MainMenu");
+
 
 }
 
