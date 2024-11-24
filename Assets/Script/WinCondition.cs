@@ -5,6 +5,7 @@ public class WinCondition : MonoBehaviour
     public GameObject victoryUI;
     public GameObject defeteadUI;
     public TesteCollider testeCollider;
+    public WellDoneScreenManager wellDoneScreenManager;
     [SerializeField] private int winMovement = 7;
     private void OnCollisionEnter(Collision other)
     {
@@ -14,6 +15,8 @@ public class WinCondition : MonoBehaviour
             if (testeCollider.moveCount <= winMovement)
             {
                 Debug.Log("GANHOU 3 ESTRELAS");
+                wellDoneScreenManager.ShowStars(3);
+
             }
         }
     }
