@@ -60,5 +60,6 @@ public class PauseMenu : MonoBehaviour
         //Gui e Alex, desconsiderem esta fun��o, pois n�o teremos o Menu montado para a primeira entrega
         //SceneManager.LoadScene("Main Menu");
         Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
     }
 }
