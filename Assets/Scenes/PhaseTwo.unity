@@ -1203,6 +1203,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 377887340}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &179178956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179178949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547a87914c15d3640ac541441fe52f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAudioSource: {fileID: 491828604}
+  myAudioClip: {fileID: 8300000, guid: 21b02ee3b06fc504d87c99c756ea8a8b, type: 3}
 --- !u!1 &214559611
 GameObject:
   m_ObjectHideFlags: 0
@@ -2741,6 +2755,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 179178950}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b7e0c1459ca7584d92ae6828264c024,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 179178956}
   m_SourcePrefab: {fileID: 100100000, guid: 6b7e0c1459ca7584d92ae6828264c024, type: 3}
 --- !u!1 &410087039
 GameObject:
@@ -3893,14 +3911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ab2884c19d1b44caada7c4854b4d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  scrollSpeed: 1.4
-  minX: -90
-  maxX: 90
-  minZ: -59
-  maxZ: 750
-  minY: 30
-  maxY: 100
 --- !u!114 &665073040
 MonoBehaviour:
   m_ObjectHideFlags: 0

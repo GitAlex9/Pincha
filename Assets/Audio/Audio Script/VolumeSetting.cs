@@ -4,13 +4,21 @@ using UnityEngine.UI;
 
 public class VolumeSetting : MonoBehaviour
 {
+
+     public static VolumeSetting instance;
+
    [SerializeField] private AudioMixer myMixer;
    [SerializeField] private Slider musicSlider;
    [SerializeField] private Slider SFXSlider;
 
+   // private const float MAX_VOLUME = 1f;
+
 
    private void Start()
    {
+
+        instance = this;
+        
      if(PlayerPrefs.HasKey("musicVolume"))
      {
         LoadVolume();

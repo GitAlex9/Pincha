@@ -890,7 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.7592735, b: 0.24719654, a: 1}
+  m_Color: {r: 0.9960785, g: 0.70980394, b: 0.2627451, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3007,14 +3007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ab2884c19d1b44caada7c4854b4d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 530963034}
-  scrollSpeed: 1.4
-  minX: -70
-  maxX: 70
-  minZ: -120
-  maxZ: 170
-  minY: 30
-  maxY: 100
 --- !u!114 &665073040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9186,7 +9178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.7592735, b: 0.24719654, a: 1}
+  m_Color: {r: 0.98823535, g: 0.7058824, b: 0.27058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10364,7 +10356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2094811675
 RectTransform:
   m_ObjectHideFlags: 0

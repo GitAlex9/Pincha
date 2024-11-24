@@ -39,7 +39,7 @@ public class VibrarComSlider : MonoBehaviour
     void AnimarBotao(float valor)
     {
         // A escala vai de 1 a 1.2, por exemplo, conforme o valor do Slider aumenta
-        float scale = 1f + (valor * 0.2f); // A escala vai de 1 a 1.2 dependendo do valor do Slider
+        float scale = 1f + (valor * 0.1f); // A escala vai de 1 a 1.2 dependendo do valor do Slider
         LeanTween.scale(buttonImage.gameObject, new Vector3(scale, scale, 1f), 0.1f).setEase(LeanTweenType.easeOutQuad);
     }
 
