@@ -9,10 +9,6 @@ public class WellDoneScreenManager : MonoBehaviour
     [SerializeField] float EnlargeDuration = 0.25f;
     [SerializeField] float ShrinkDuration = 0.25f;
 
-    private void Start() {
-        ShowStars(3);
-    }
-    
     public void ShowStars(int numberOfStars)
     {
         foreach (Star star in Stars)
