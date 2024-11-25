@@ -13,7 +13,18 @@ void Start()
     {
         
         telaVitoria.SetActive(true); // Certifique-se de que o Canvas de tela de vitória está desativado no início
-        Time.timeScale = 0;
+        foreach (GameObject obj in FindObjectsOfType<GameObject>())
+        {
+            if (obj.activeInHierarchy)
+            {
+                Rigidbody rb = obj.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = true;
+                }
+            }
+        }
+        //Time.timeScale = 0;
     }
     else
     {
