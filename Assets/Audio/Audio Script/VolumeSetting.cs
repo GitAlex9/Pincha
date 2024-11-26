@@ -8,8 +8,8 @@ public class VolumeSetting : MonoBehaviour
      public static VolumeSetting instance;
 
    [SerializeField] private AudioMixer myMixer;
-   [SerializeField] private Slider musicSlider;
-   [SerializeField] private Slider SFXSlider;
+   [SerializeField] public Slider musicSlider;
+   [SerializeField] public Slider SFXSlider;
 
    // private const float MAX_VOLUME = 1f;
 

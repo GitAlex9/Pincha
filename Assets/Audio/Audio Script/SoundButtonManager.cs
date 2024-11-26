@@ -16,6 +16,11 @@ public class SoundButtonManager : MonoBehaviour
 [SerializeField] AudioMixerGroup musicMixerGroup;
 [SerializeField] AudioMixerGroup sfxMixerGroup;
 
+private VolumeSetting volumeSetting;
+
+[SerializeField] private Slider musicSlider;
+[SerializeField] private Slider sfxSlider;
+
 private bool isMusicMuted = false;
 private bool isSfxMuted = false;
 
@@ -27,7 +32,7 @@ void Start()
 
       PlayerPrefs.SetInt("IsMusicMuted", 0);
       PlayerPrefs.SetInt("IsSfxMuted", 0);
-     Load();
+      Load();
     
    }
    else
@@ -35,30 +40,25 @@ void Start()
     //   Load();
    }
     
-    
     UpdateMusicButtonIcon();
     UpdateSfxButtonIcon();
 
-    
 }
 
   public void OnMusicMuteButtonPressed()
     {
         isMusicMuted = !isMusicMuted;
-        musicMixerGroup.audioMixer.SetFloat("music", isMusicMuted ? -80f : 0f); 
-        // SaveMusicMuted();
+        float volume = musicSlider.value;
+        musicMixerGroup.audioMixer.SetFloat("music",isMusicMuted ? -80f : Mathf.Log10(volume)*20); 
         UpdateMusicButtonIcon();
-        // PlayerPrefs.SetInt("IsMusicMuted", isMusicMuted ? 1 : 0);
-        Save();
     }
 
     public void OnSfxMuteButtonPressed()
     {
         isSfxMuted = !isSfxMuted;
-        sfxMixerGroup.audioMixer.SetFloat("SFX", isSfxMuted ? -80f : 0f); 
-        // SaveSfxMuted();
+        float volume = sfxSlider.value;
+        sfxMixerGroup.audioMixer.SetFloat("SFX", isSfxMuted ? -80f : Mathf.Log10(volume)*20); 
         UpdateSfxButtonIcon();
-        Save();
     }
 
 private void UpdateMusicButtonIcon()
@@ -67,15 +67,15 @@ private void UpdateMusicButtonIcon()
  if(isMusicMuted == false)
  {
 
- soundOnIcon.enabled = true;
- soundOffIcon.enabled = false;
+  soundOnIcon.enabled = true;
+  soundOffIcon.enabled = false;
 
  }
 else
 {
 
-soundOnIcon.enabled = false;
-soundOffIcon.enabled = true;
+  soundOnIcon.enabled = false;
+  soundOffIcon.enabled = true;
 
  }
 }
@@ -86,8 +86,8 @@ private void UpdateSfxButtonIcon()
  if(isSfxMuted == false)
  {
 
- sfxOnIcon.enabled = true;
- sfxOffIcon.enabled = false;
+  sfxOnIcon.enabled = true;
+  sfxOffIcon.enabled = false;
 
  }
 else
@@ -103,23 +103,13 @@ else
 private void Load()
 {
 
-isMusicMuted = PlayerPrefs.GetInt("IsMusicMuted", 0) == 1; 
-isSfxMuted = PlayerPrefs.GetInt("IsSfxMuted", 0) == 1; 
-
-//  if (VolumeSetting.instance != null) // Check for VolumeSetting script
-//         {
-//             VolumeSetting.instance.SetMusicVolume(isMusicMuted ? 0f : PlayerPrefs.GetFloat("musicVolume", 1f)); // 1f for default max volume
-//             VolumeSetting.instance.SetSFXVolume(isSfxMuted ? 0f : PlayerPrefs.GetFloat("SFXVolume", 1f));
-//         }
+  isMusicMuted = PlayerPrefs.GetInt("IsMusicMuted", 0) == -80; 
+  isSfxMuted = PlayerPrefs.GetInt("IsSfxMuted", 0) == -80; 
 
 }
 
-private void Save()
-{
-
-    PlayerPrefs.SetInt("IsMusicMuted", isMusicMuted ? 1 : 0);
-    PlayerPrefs.SetInt("IsSfxMuted", isSfxMuted ? 1 : 0);
-
 }
 
- }
+
+
+ 

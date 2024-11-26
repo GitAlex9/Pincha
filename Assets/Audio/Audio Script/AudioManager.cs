@@ -1,68 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.SceneManagement;
+ 
 public class AudioManager : MonoBehaviour
 {
-   [Header("---------- Audio Source ----------")]
-   [SerializeField] AudioSource musicSource;
-   [SerializeField] AudioSource SFXSource;
+    public static AudioManager instance;
 
-   [Header("---------- Audio Clip ----------")]
-   public AudioClip background;
-   public AudioClip arrasta;
-   public AudioClip win;
-   public AudioClip death;
-
-   private void Awake()
-   {
-    DontDestroyOnLoad(gameObject);
-   }
-
-   private bool isGamePaused = false;
-
-//    public GameObject telaVitoria;
-
-    
-   private void Start()
-   {
-    musicSource.clip = background;
-    musicSource.Play();
-   }
-
-   public void PlaySFX(AudioClip clip)
-   {
-    SFXSource.PlayOneShot(clip);
-   }
-
-    public void PauseBackgroundMusic()
+    public AudioClip background;
+ 
+    void Awake()
     {
-        if (musicSource.isPlaying)
+        if (instance != null)
+            // Destroy(gameObject);
+            AudioManager.instance.GetComponent<AudioSource>().Pause();
+
+        else
         {
-            musicSource.Pause();
-            isGamePaused = true;
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+           
+
             
         }
     }
-
-    public void ResumeBackgroundMusic()
-    {
-        if (isGamePaused && musicSource.clip != null)
-        {
-            musicSource.Play();
-            isGamePaused = false;
-        }
-    }
-
-  
-
-   
-
-//   public void vitoria()
-//   {
-//     if(telaVitoria == true)
-//     {
-//         SFXSource.Pause();
-//     }
-//   }
 
 }

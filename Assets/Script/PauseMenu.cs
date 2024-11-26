@@ -8,12 +8,12 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject uiButtons;
 
-    private AudioManager audioManager;
+    // private AudioManager audioManager;
 
-    void Start()
-    {
-        audioManager = FindObjectOfType<AudioManager>(); 
-    }
+    // void Start()
+    // {
+    //     audioManager = FindObjectOfType<AudioManager>(); 
+    // }
 
     public void Pause()
     {
@@ -22,10 +22,10 @@ public class PauseMenu : MonoBehaviour
         uiButtons.SetActive(false);
         Time.timeScale = 0;
 
-        if (audioManager != null)
-        {
-            audioManager.PauseBackgroundMusic();
-        }
+        // if (audioManager != null)
+        // {
+        //     audioManager.PauseBackgroundMusic();
+        // }
     }
 
     public void Retomar()
@@ -35,10 +35,10 @@ public class PauseMenu : MonoBehaviour
         uiButtons.SetActive(true);
         Time.timeScale = 1;
 
-        if (audioManager != null) 
-        {
-            audioManager.ResumeBackgroundMusic();
-        }
+        // if (audioManager != null) 
+        // {
+        //     audioManager.ResumeBackgroundMusic();
+        // }
     }
 
     public void Reiniciar()
@@ -48,10 +48,10 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
 
-        if (audioManager != null) 
-        {
-            audioManager.ResumeBackgroundMusic(); 
-        }
+        // if (audioManager != null) 
+        // {
+        //     audioManager.ResumeBackgroundMusic(); 
+        // }
     }
 
     public void Menu()
