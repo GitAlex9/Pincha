@@ -31,6 +31,8 @@ public class PinchaForceReceiver : MonoBehaviour
 
         // Inicia a Coroutine para invocar o evento após o tempo de espera
         StartCoroutine(WaitAndInvokeMovementEvent());
+        
+
     }
 
     // Coroutine que espera e depois invoca o evento

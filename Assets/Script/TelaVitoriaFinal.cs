@@ -25,6 +25,8 @@ void Start()
             }
         }
         //Time.timeScale = 0;
+            AudioManager.instance.GetComponent<AudioSource>().Pause();
+
     }
     else
     {
@@ -40,6 +42,8 @@ public void LoadNextLevel()
     Debug.Log("Próxima fase...");
     // Carrega a próxima cena (supondo que as cenas estão em ordem no Build Settings)
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);    
+        AudioManager.instance.GetComponent<AudioSource>().Play();
+
 }
 
 // Função chamada pelo botão "Menu"

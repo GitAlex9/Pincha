@@ -1,5 +1,4 @@
 using UnityEngine;
-
 using UnityEngine.SceneManagement;
 
 
@@ -19,6 +18,10 @@ if (telaDerrota != null)
 telaDerrota.SetActive(true); // Certifique-se de que o Canvas de tela de vitória está desativado no início
 Time.timeScale = 0;
 
+
+
+ AudioManager.instance.GetComponent<AudioSource>().Pause();
+
 }
 }
 
@@ -26,7 +29,7 @@ Time.timeScale = 0;
 void Update()
 
 {
-
+   
 }
 
 public void GoToMenu()
@@ -49,6 +52,9 @@ Debug.Log("Você reiniciou a fase!");
 Time.timeScale = 1; // Retorna o tempo de jogo ao normal
 
 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+
+
 
 }
 

@@ -2681,7 +2681,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1980433067}
+      - m_Target: {fileID: 1859319059}
         m_TargetAssemblyTypeName: VolumeSetting, Assembly-CSharp
         m_MethodName: SetMusicVolume
         m_Mode: 1
@@ -3032,14 +3032,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ab2884c19d1b44caada7c4854b4d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 530963034}
-  scrollSpeed: 1.4
-  minX: -70
-  maxX: 70
-  minZ: -120
-  maxZ: 170
-  minY: 30
-  maxY: 100
 --- !u!114 &665073040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8579,7 +8571,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1980433067}
+      - m_Target: {fileID: 1859319059}
         m_TargetAssemblyTypeName: VolumeSetting, Assembly-CSharp
         m_MethodName: SetSFXVolume
         m_Mode: 1
@@ -8850,7 +8842,6 @@ GameObject:
   - component: {fileID: 1805023391}
   - component: {fileID: 1805023390}
   - component: {fileID: 1805023389}
-  - component: {fileID: 1805023392}
   m_Layer: 0
   m_Name: Mute Music
   m_TagString: Untagged
@@ -8973,21 +8964,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1805023387}
   m_CullTransparentMesh: 1
---- !u!114 &1805023392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805023387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de307185bc785ba4d8b470f0471e82bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myMixer: {fileID: 24100000, guid: 81cca6c8af8b5944ba002074b0f297c7, type: 2}
-  musicSlider: {fileID: 551075178}
-  SFXSlider: {fileID: 1767108258}
 --- !u!1 &1830143948
 GameObject:
   m_ObjectHideFlags: 0
@@ -9228,6 +9204,7 @@ GameObject:
   - component: {fileID: 1859319057}
   - component: {fileID: 1859319056}
   - component: {fileID: 1859319058}
+  - component: {fileID: 1859319059}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Audio
@@ -9247,12 +9224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14683b81a92ab5468adf8f3e32e4ee1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 2072671666}
-  SFXSource: {fileID: 792926822}
   background: {fileID: 8300000, guid: 1264735a633e9cb49af30b28b29c757f, type: 3}
-  arrasta: {fileID: 0}
-  win: {fileID: 0}
-  death: {fileID: 0}
 --- !u!4 &1859319057
 Transform:
   m_ObjectHideFlags: 0
@@ -9266,7 +9238,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2072671667}
   - {fileID: 792926823}
   - {fileID: 1550693125}
   m_Father: {fileID: 0}
@@ -9292,6 +9263,23 @@ MonoBehaviour:
     type: 2}
   sfxMixerGroup: {fileID: 2602355670260058769, guid: 81cca6c8af8b5944ba002074b0f297c7,
     type: 2}
+  musicSlider: {fileID: 551075178}
+  sfxSlider: {fileID: 1767108258}
+--- !u!114 &1859319059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1859319055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de307185bc785ba4d8b470f0471e82bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMixer: {fileID: 24100000, guid: 81cca6c8af8b5944ba002074b0f297c7, type: 2}
+  musicSlider: {fileID: 551075178}
+  SFXSlider: {fileID: 1767108258}
 --- !u!1 &1861049825
 GameObject:
   m_ObjectHideFlags: 0
@@ -9664,7 +9652,6 @@ GameObject:
   - component: {fileID: 1980433064}
   - component: {fileID: 1980433066}
   - component: {fileID: 1980433065}
-  - component: {fileID: 1980433067}
   m_Layer: 5
   m_Name: AudioConfig
   m_TagString: Untagged
@@ -9731,21 +9718,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980433063}
   m_CullTransparentMesh: 1
---- !u!114 &1980433067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1980433063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de307185bc785ba4d8b470f0471e82bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myMixer: {fileID: 24100000, guid: 81cca6c8af8b5944ba002074b0f297c7, type: 2}
-  musicSlider: {fileID: 551075178}
-  SFXSlider: {fileID: 1767108258}
 --- !u!1 &1999312185
 GameObject:
   m_ObjectHideFlags: 0
@@ -9796,7 +9768,9 @@ MonoBehaviour:
   victoryUI: {fileID: 572753401}
   defeteadUI: {fileID: 801981020}
   testeCollider: {fileID: 1226072800}
-  winMovement: 7
+  starCrownManager: {fileID: 0}
+  threeStar: 0
+  twoStar: 0
 --- !u!65 &1999312188
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9990,12 +9964,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2072671665}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.846014, y: 10.358228, z: 1.517307}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1859319057}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2080921479
 GameObject:
@@ -10453,6 +10427,7 @@ SceneRoots:
   - {fileID: 1730775012}
   - {fileID: 501039090}
   - {fileID: 330585546}
+  - {fileID: 2072671667}
   - {fileID: 1859319057}
   - {fileID: 410087041}
   - {fileID: 832575519}
