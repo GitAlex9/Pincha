@@ -7,9 +7,14 @@ public class CheckMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private LineProjection lineProjection; // Referência à classe LineProjection
 
+    public AudioClip soundClip; 
+    public AudioSource audioSource; 
+
     void Start()
     {
-        isMoving = false;        
+        isMoving = false;    
+
+        audioSource = GetComponent<AudioSource>();    
     }
 
     void OnEnable()
@@ -27,6 +32,7 @@ public class CheckMovement : MonoBehaviour
         if (value > 0 && rb.velocity.magnitude > 0f)
         {
             isMoving = true;
+            audioSource.PlayOneShot(soundClip);
             if (lineProjection != null)
             {
                 lineProjection.activeLineRenderer = false; // Ativa a classe LineProjection
@@ -45,9 +51,12 @@ public class CheckMovement : MonoBehaviour
                 {
                     lineProjection.activeLineRenderer = true; // Desativa a classe LineProjection
                 }
-                isMoving = false;                
+                isMoving = false;  
+                audioSource.Stop();              
+               
             }
         }
+
     }
 
     public static implicit operator Rigidbody(CheckMovement v)

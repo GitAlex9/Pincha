@@ -16,6 +16,7 @@ public class PinchaForceReceiver : MonoBehaviour
         ForceSliderController.ForceReleased += ApplyForce;  // Inscreve no evento de controle de força
     }
 
+
     void OnDisable()
     {
         ForceSliderController.ForceReleased -= ApplyForce;  // Remove inscrição no evento
@@ -31,7 +32,6 @@ public class PinchaForceReceiver : MonoBehaviour
 
         // Inicia a Coroutine para invocar o evento após o tempo de espera
         StartCoroutine(WaitAndInvokeMovementEvent());
-        
 
     }
 
