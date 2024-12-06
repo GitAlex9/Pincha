@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private string NameGameLevel;
     [SerializeField] private GameObject painelMenu;
     [SerializeField] private GameObject painelOpcoes;
+    
     public void Jogar(){
         SceneManager.LoadScene(NameGameLevel);
     }
@@ -22,9 +23,8 @@ public class MainMenu : MonoBehaviour
         painelOpcoes.SetActive(false);
     }
 
-    public void SairJogo(){
-        Debug.Log("Saindo do jogo...");
-        Application.Quit();
+    public void Creditos(){
+        SceneManager.LoadScene("Credits");
     }
 
 }
