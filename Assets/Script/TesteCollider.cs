@@ -95,6 +95,7 @@ public class TesteCollider : MonoBehaviour
         {
             Debug.Log("Você realizou um movimento perfeito");
             moveOk = true;
+            PassaALinha.instance.PlaySound();
             
         }
     }

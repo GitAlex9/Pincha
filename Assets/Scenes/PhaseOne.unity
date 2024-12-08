@@ -869,6 +869,7 @@ GameObject:
   - component: {fileID: 172292314}
   - component: {fileID: 172292315}
   - component: {fileID: 172292316}
+  - component: {fileID: 172292317}
   m_Layer: 0
   m_Name: Pincha 2
   m_TagString: Player
@@ -1055,6 +1056,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &172292317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172292304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bbcebf1f45c8045939ef10fbc4c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 792926822}
+  crossingSound: {fileID: 8300000, guid: eb46e04f49527d642a5226f894bf0a44, type: 3}
 --- !u!1 &199292168 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9152363913774390056, guid: 7f7db084e2481544e948666326e072e6,
@@ -3754,6 +3769,7 @@ GameObject:
   - component: {fileID: 835636357}
   - component: {fileID: 835636358}
   - component: {fileID: 835636359}
+  - component: {fileID: 835636360}
   m_Layer: 0
   m_Name: Pincha 3
   m_TagString: Player
@@ -3940,6 +3956,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &835636360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835636347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bbcebf1f45c8045939ef10fbc4c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 792926822}
+  crossingSound: {fileID: 8300000, guid: eb46e04f49527d642a5226f894bf0a44, type: 3}
 --- !u!1 &838314694
 GameObject:
   m_ObjectHideFlags: 0
@@ -6262,6 +6292,7 @@ GameObject:
   - component: {fileID: 1457864279}
   - component: {fileID: 1457864280}
   - component: {fileID: 1457864281}
+  - component: {fileID: 1457864282}
   m_Layer: 0
   m_Name: Pincha 1
   m_TagString: Player
@@ -6448,6 +6479,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1457864282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457864269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bbcebf1f45c8045939ef10fbc4c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 792926822}
+  crossingSound: {fileID: 8300000, guid: eb46e04f49527d642a5226f894bf0a44, type: 3}
 --- !u!1 &1469866534
 GameObject:
   m_ObjectHideFlags: 0

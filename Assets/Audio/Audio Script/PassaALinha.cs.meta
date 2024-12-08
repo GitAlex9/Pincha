@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: 0092bff9abea9874fa720d5b9c2d8a53
+guid: c6bbcebf1f45c8045939ef10fbc4c46d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - crossingSound: {fileID: 8300000, guid: eb46e04f49527d642a5226f894bf0a44, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
