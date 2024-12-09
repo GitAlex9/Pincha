@@ -6,6 +6,8 @@ public class MovementChecker : MonoBehaviour
     private ObjectLineSelector objectLineSelector;
     private bool hasCrossedLine = false;
     private int moveCount = 0;
+
+     
     
     // Start is called before the first frame update
     void Start()
@@ -52,9 +54,13 @@ public class MovementChecker : MonoBehaviour
             {
                 Debug.Log("Colidiu com: " + hit.collider.name);
                 hasCrossedLine = true;  // Marca que a linha foi cruzada
+
+                
             }
         }
     }
+
+
 
     private void EndMovement()
     {
@@ -62,6 +68,7 @@ public class MovementChecker : MonoBehaviour
         {
             moveCount++;
             Debug.Log("Você fez " + moveCount + " movimento válido.");
+    
             hasCrossedLine = false;
         }
         else

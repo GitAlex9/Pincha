@@ -976,6 +976,7 @@ GameObject:
   - component: {fileID: 172292314}
   - component: {fileID: 172292315}
   - component: {fileID: 172292316}
+  - component: {fileID: 172292317}
   m_Layer: 0
   m_Name: Pincha 2
   m_TagString: Player
@@ -1162,6 +1163,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &172292317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172292304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bbcebf1f45c8045939ef10fbc4c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 558792064}
+  crossingSound: {fileID: 8300000, guid: eb46e04f49527d642a5226f894bf0a44, type: 3}
 --- !u!1 &179178949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6b7e0c1459ca7584d92ae6828264c024,
@@ -4462,6 +4477,7 @@ GameObject:
   - component: {fileID: 835636357}
   - component: {fileID: 835636358}
   - component: {fileID: 835636359}
+  - component: {fileID: 835636360}
   m_Layer: 0
   m_Name: Pincha 3
   m_TagString: Player
@@ -4648,6 +4664,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &835636360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835636347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bbcebf1f45c8045939ef10fbc4c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 558792064}
+  crossingSound: {fileID: 8300000, guid: eb46e04f49527d642a5226f894bf0a44, type: 3}
 --- !u!1 &844676919
 GameObject:
   m_ObjectHideFlags: 0
@@ -5956,6 +5986,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1027089682}
   - component: {fileID: 1027089683}
+  - component: {fileID: 1027089684}
+  - component: {fileID: 1027089685}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Audio
@@ -6001,8 +6033,119 @@ MonoBehaviour:
     type: 2}
   sfxMixerGroup: {fileID: 2602355670260058769, guid: 81cca6c8af8b5944ba002074b0f297c7,
     type: 2}
-  musicSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
+  musicSlider: {fileID: 551075178}
+  sfxSlider: {fileID: 878226932}
+--- !u!82 &1027089684
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027089681}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1027089685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027089681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de307185bc785ba4d8b470f0471e82bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myMixer: {fileID: 24100000, guid: 81cca6c8af8b5944ba002074b0f297c7, type: 2}
+  musicSlider: {fileID: 551075178}
+  SFXSlider: {fileID: 878226932}
 --- !u!1 &1119328796
 GameObject:
   m_ObjectHideFlags: 0
@@ -7390,6 +7533,7 @@ GameObject:
   - component: {fileID: 1457864279}
   - component: {fileID: 1457864280}
   - component: {fileID: 1457864281}
+  - component: {fileID: 1457864282}
   m_Layer: 0
   m_Name: Pincha 1
   m_TagString: Player
@@ -7576,6 +7720,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1457864282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457864269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6bbcebf1f45c8045939ef10fbc4c46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 558792064}
+  crossingSound: {fileID: 8300000, guid: eb46e04f49527d642a5226f894bf0a44, type: 3}
 --- !u!1 &1459847866
 GameObject:
   m_ObjectHideFlags: 0
@@ -9439,7 +9597,8 @@ LineRenderer:
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
-  m_Materials: []
+  m_Materials:
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
