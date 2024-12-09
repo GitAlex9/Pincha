@@ -19,6 +19,7 @@ public class ObjectLineSelector : MonoBehaviour
         {
             DrawLineBetweenObjects(GetOtherObjects(selectedPincha)); // Desenha a linha entre as tampinhas restantes
         }
+
     }
 
     public GameObject[] GetOtherObjects(GameObject selectedPincha)

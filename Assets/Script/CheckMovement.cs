@@ -6,7 +6,9 @@ public class CheckMovement : MonoBehaviour
     private bool isMoving;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private LineProjection lineProjection; // Referência à classe LineProjection
-
+    [SerializeField] private GameObject forceSliderController;
+    [SerializeField] private GameObject buttonMenu;
+ 
     public AudioClip soundClip; 
     public AudioSource audioSource; 
 
@@ -36,6 +38,8 @@ public class CheckMovement : MonoBehaviour
             if (lineProjection != null)
             {
                 lineProjection.activeLineRenderer = false; // Ativa a classe LineProjection
+                forceSliderController.SetActive(false);
+                buttonMenu.SetActive(false);
             }
         }
     }
@@ -50,6 +54,8 @@ public class CheckMovement : MonoBehaviour
                 if (lineProjection != null)
                 {
                     lineProjection.activeLineRenderer = true; // Desativa a classe LineProjection
+                    forceSliderController.SetActive(true);
+                    buttonMenu.SetActive(true);
                 }
                 isMoving = false;  
                 audioSource.Stop();              

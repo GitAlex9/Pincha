@@ -13,7 +13,7 @@ public class MoveCount : MonoBehaviour
 
     void UpdateTextUI()
     {
-        MoveCounter.text = "Moves: " + moveChecker.moveCount.ToString();
+        MoveCounter.text = "" + moveChecker.moveCount.ToString();
     }
 
     public void UpdateCountText()

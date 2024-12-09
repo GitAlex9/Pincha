@@ -3,7 +3,7 @@ using Cinemachine;
 
 public class NavigationCamera : MonoBehaviour
 {
-#if UNITY_ANDROID
+//#if UNITY_ANDROID
     [SerializeField] private CinemachineVirtualCamera cam;
     [SerializeField] private float scrollSpeed = 5f; // Velocidade de movimentação
     //[SerializeField] private float rotationSpeed = 1f;
@@ -111,5 +111,5 @@ public class NavigationCamera : MonoBehaviour
         Vector3 lastPos = CalculatePlanePosition(touch.position - touch.deltaPosition);
         return currentPos - lastPos;
     }
-#endif
+//#endif
 }

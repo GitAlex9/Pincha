@@ -47,6 +47,11 @@ public class CameraSwitcher : MonoBehaviour
             tampinhaSelecionada = null;
         }
 
+        foreach (var obj in touchSelection)
+        {
+            obj.SetActive(false);
+        }
+
         // Ativa a câmera de navegação
         navigationCamera.gameObject.SetActive(true);
     }
