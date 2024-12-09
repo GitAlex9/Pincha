@@ -6377,7 +6377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextPoint:
-  - {fileID: 0}
+  - {fileID: 1547010770}
 --- !u!4 &1225131435
 Transform:
   m_ObjectHideFlags: 0
@@ -8554,7 +8554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextPoint:
-  - {fileID: 0}
+  - {fileID: 1225131434}
 --- !u!4 &1547010771
 Transform:
   m_ObjectHideFlags: 0
